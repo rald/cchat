@@ -1,14 +1,14 @@
-CC=gcc
-ARGS=-pthread -lncurses -ansi -std=c99 -O
+CC=musl-gcc
+ARGS=-static -pthread -I$(HOME)/ncurses/include -L$(HOME)/ncurses/lib -lncurses 
 CLEAN=rm -f
 
 all: client server
 
 client: client.c gui.h
-	$(CC) $(ARGS) -o client client.c gui.c
+	$(CC) -o client client.c gui.c $(ARGS) 
 
 server: server.c
-	$(CC) $(ARGS) -o server server.c
+	$(CC) -o server server.c $(ARGS) 
 	
 clean:
 	$(CLEAN) client server
