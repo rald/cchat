@@ -1,5 +1,5 @@
-CC=musl-gcc
-ARGS=-static -pthread -I$(HOME)/ncurses/include -L$(HOME)/ncurses/lib -lncurses 
+CC=gcc
+ARGS=-pthread -lncurses 
 CLEAN=rm -f
 
 all: client server
